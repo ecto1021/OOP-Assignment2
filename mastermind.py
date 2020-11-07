@@ -1,7 +1,5 @@
 import random
 
-
-
 class Mastermind:
     """A class representing Mastermind
     ...
@@ -9,6 +7,7 @@ class Mastermind:
     
     list of players that is used to store player names
     """
+    gameMode = ['A', 'B', 'C', 'D']
     listOfPlayers = []
 
     def __init__(self):
@@ -18,15 +17,11 @@ class Mastermind:
         Developed by Steven Harris
         COMP 1046 Object-Oriented Programming 
         Press Enter to Continue ''')
-        
-    def player(self,name):
-        '''player class with a named attribute'''
-        self.name = name
-
-    def setGameMode(self):
-        pass 
 
     def play(self):
+        """the main class to run, specified in assignment 2
+        i used a while loop here to get the function to repeat if a 
+        """
         playing = True
         while playing == True:
             choice = input("""
@@ -36,58 +31,83 @@ class Mastermind:
             """)
             if choice in ["p","P"]:
                 choseGameMode = str(input('''
-                    Select which game you want to play: 
-                    (A) Original Mastermind for 2 Players 
-                    (B) Original Mastermind for 1 Player 
-                    (C) Mastermind44 for 4 Players 
-                    *Enter A, B, or C to continue* 
+                Select which game you want to play: 
+                (A) Original Mastermind for 2 Players 
+                (B) Original Mastermind for 1 Player 
+                (C) Mastermind44 for 4 Players 
+                *Enter A, B, or C to continue* 
                         '''))    
                         
                 if  choseGameMode  in ['A','a']:
-                    counter = 1 
-                    while counter < 3:
-                        self.name = input("Player {counter} please enter your name: ".format(counter = counter))
-                        counter += 1
-                        self.listOfPlayers.append(self.name)
+                    player1Name = input("Player 1 please enter your name: ")
+                    player2Name = input("Player 2 please enter your name: ")
+                    player1 = Player(player1Name)
+                    player2 = Player(player2Name)
+                    self.listOfPlayers.append(player1.name)
+                    self.listOfPlayers.append(player2.name)
                     break
-
                 elif  choseGameMode  in ["B" ,"b"]:
-                    self.name = input("Please enter your name: ")
-                    self.listOfPlayers.append(self.name)
+                    player1 = Player(input("Player 1 please enter your name: "))
+                    self.listOfPlayers.append(player1.name)
+                    break
                 elif  choseGameMode  in ["C" ,"c"]:
-                    counter = 1 
-                    while counter < 5:
-                        self.name = input("Player {counter} please enter your name: ".format(counter = counter))
-                        counter += 1
-                        self.id += 1
-                        self.listOfPlayers.append(self.name)
+                    player1Name = input("Player 1 please enter your name: ")
+                    player2Name = input("Player 2 please enter your name: ")
+                    player3Name = input("Player 3 please enter your name: ")
+                    player4Name = input("Player 4 please enter your name: ")
+                    player1 = Player(player1Name)
+                    player2 = Player(player2Name)
+                    player3 = Player(player3Name)
+                    player4 = Player(player4Name)
+                    self.listOfPlayers.append(player1.name)
+                    self.listOfPlayers.append(player2.name)
+                    self.listOfPlayers.append(player3.name)
+                    self.listOfPlayers.append(player4.name)
                     break 
                 else:
                     print("please restart the game")
-                    quit()
+                   
             elif choice in ['Q','q']:
                 quit()
                 playing == False
+            else:
+                print("invalid input")
 
+    def getPlayerName(self,name):
+        '''Function to return player name
 
-    def getPlayerName(self):
-        return self.name
+        '''
+
+        self.name = name
+        return name
         
         
         
     def showList(self):
         for i in self.listOfPlayers:
             print(i)
+            
 
+    def printList(self):
+        print(self.listOfPlayers)
 
+class Player:
+    """a class reprensenting a player
+    this class is inherited when a player is created in the Mastermind game
 
+    """
 
+    def __init__(self, name):
+        self.name = name
 
 
 
 
 
 m = Mastermind()
+m.play()
 
-#m.play()
-#m.showList()
+print(m.getPlayerName(m.listOfPlayers[0]))
+print(m.getPlayerName(m.listOfPlayers[1]))
+
+
