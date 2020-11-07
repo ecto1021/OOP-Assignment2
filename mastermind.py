@@ -3,11 +3,16 @@ import random
 
 
 class Mastermind:
-    gameMode = ['A', 'B', 'C', 'D']
+    """A class representing Mastermind
+    ...
+    Attributes
+    
+    list of players that is used to store player names
+    """
     listOfPlayers = []
 
     def __init__(self):
-        #initialising class with a welcome message
+        '''initialising class with a welcome message'''
         WelcomeString = input('''
         Welcome to Mastermind! 
         Developed by Steven Harris
@@ -15,6 +20,7 @@ class Mastermind:
         Press Enter to Continue ''')
         
     def player(self,name):
+        '''player class with a named attribute'''
         self.name = name
 
     def setGameMode(self):
@@ -83,5 +89,5 @@ class Mastermind:
 
 m = Mastermind()
 
-m.play()
-m.showList()
+#m.play()
+#m.showList()
