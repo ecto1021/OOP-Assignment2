@@ -115,10 +115,14 @@ class board:
     masterCodeList = ["R","l","G","y","W","B","A"]
 
     def __init__(self):
-        masterCodeList 
+        masterCodeList = ["R","l","G","y","W","B","A"]
+       
+       
 
-
-
+    def generateMasterCode(self, numberOfPegs):
+        self.numberOfPegs = numberOfPegs
+        for x in self.masterCodeList:
+            print(x)
 
 
 
@@ -134,10 +138,11 @@ class board:
 
 
 m = Mastermind()
-m.play()
+#m.play()
 
-print(m.getPlayerName(m.listOfPlayers[0]))
-print(m.getPlayerName(m.listOfPlayers[3]))
+b = board()
+
+b.generateMasterCode(3)
 
 
 
