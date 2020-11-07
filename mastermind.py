@@ -3,8 +3,7 @@ import random
 class Mastermind:
     """A class representing Mastermind
     ...
-    Attributes
-    
+    Attributes:
     list of players that is used to store player names
     """
     gameMode = ['A', 'B', 'C', 'D']
@@ -36,7 +35,7 @@ class Mastermind:
                     (B) Original Mastermind for 1 Player 
                     (C) Mastermind44 for 4 Players 
                     *Enter A, B, or C to continue* 
-                        '''))       
+                        '''))    
                 if  choseGameMode  in ['A','a']:
                     player1Name = input("Player 1 please enter your name: ")
                     player2Name = input("Player 2 please enter your name: ")
@@ -65,15 +64,17 @@ class Mastermind:
                     break 
                 else:
                     print("INVALID INPUT!")
+                    print('Please choose from above option')
                     continue
 
             elif choice in ['Q','q']:
-                print("here")
+                print("You Have Chosen to Exit")
                 quit()
                 playing == False
-
-
-
+            else:
+                print('INVALID INPUT!')
+                print('Please choose from above option')
+                continue
 
     def getPlayerName(self,name):
         '''Function to return player name
@@ -97,7 +98,6 @@ class Player:
     """a class reprensenting a player
     this class is inherited when a player is created in the Mastermind game
     """
-
     def __init__(self, name):
         self.name = name
 
@@ -105,9 +105,21 @@ class Player:
 
 
 class board:
-    '''A board class containing the board for the game'''
+    '''A board class containing the board for the game
 
-    masterCode = ["R", ]
+    Attributes
+    
+    Contains a list with colours to choose from
+    
+    '''
+    masterCodeList = ["R","l","G","y","W","B","A"]
+
+    def __init__(self):
+        masterCodeList 
+
+
+
+
 
 
 
@@ -125,6 +137,8 @@ m = Mastermind()
 m.play()
 
 print(m.getPlayerName(m.listOfPlayers[0]))
+print(m.getPlayerName(m.listOfPlayers[3]))
 
 
-print(m.__doc__)
+
+
