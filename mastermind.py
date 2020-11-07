@@ -31,13 +31,12 @@ class Mastermind:
             """)
             if choice in ["p","P"]:
                 choseGameMode = str(input('''
-                Select which game you want to play: 
-                (A) Original Mastermind for 2 Players 
-                (B) Original Mastermind for 1 Player 
-                (C) Mastermind44 for 4 Players 
-                *Enter A, B, or C to continue* 
-                        '''))    
-                        
+                    Select which game you want to play: 
+                    (A) Original Mastermind for 2 Players 
+                    (B) Original Mastermind for 1 Player 
+                    (C) Mastermind44 for 4 Players 
+                    *Enter A, B, or C to continue* 
+                        '''))       
                 if  choseGameMode  in ['A','a']:
                     player1Name = input("Player 1 please enter your name: ")
                     player2Name = input("Player 2 please enter your name: ")
@@ -65,19 +64,20 @@ class Mastermind:
                     self.listOfPlayers.append(player4.name)
                     break 
                 else:
-                    print("please restart the game")
-                   
+                    print("INVALID INPUT!")
+                    continue
+
             elif choice in ['Q','q']:
+                print("here")
                 quit()
                 playing == False
-            else:
-                print("invalid input")
+
+
+
 
     def getPlayerName(self,name):
         '''Function to return player name
-
         '''
-
         self.name = name
         return name
         
@@ -94,11 +94,26 @@ class Mastermind:
 class Player:
     """a class reprensenting a player
     this class is inherited when a player is created in the Mastermind game
-
     """
 
     def __init__(self, name):
         self.name = name
+
+
+
+
+class board:
+    '''A board class containing the board for the game'''
+
+    masterCode = ["R"]
+
+
+
+
+
+
+
+
 
 
 
@@ -108,6 +123,5 @@ m = Mastermind()
 m.play()
 
 print(m.getPlayerName(m.listOfPlayers[0]))
-print(m.getPlayerName(m.listOfPlayers[1]))
 
 
