@@ -32,6 +32,29 @@ class board:
 
 
 
+class row:
+    player = Player
+    attemptNumber = 0
+    guessCodeList = []
+    feedbackList = ["w", "R"]
+
+    def __init__(self):
+        self.player = Player
+        self.attemptNumber
+        self.guessCodeList
+        self.feedbackList
+
+    def checkAnswer(self,masterCodelist):
+        '''Checks answer against guess code '''
+        empBoard = board()
+        self.masterCodelist = empBoard.masterCodelist
+        guess = Mastermind.getGuessCode
+        if(guess == self.masterCodelist):              
+            print("Great! You guessed the number in just 1 try! You're a Mastermind!") 
+        else: 
+            # ctr variable initialized. It will keep count of  
+            # the number of tries the Player takes to guess the number. 
+            ctr = 0    
 
 
 class Mastermind:
@@ -104,6 +127,7 @@ What would you like to do ?
 """)
             if choice in ["p", 'p']:
                     self.setGameMode()
+                    row.checkAnswer(self,self.getMasterCode(4))
                     playAgain = input("do you want to continue: y or n ?")
                     if playAgain in ['n','N']:
                         print("Thanks for playing! ")
@@ -143,6 +167,10 @@ What would you like to do ?
         b.generateMasterCode(numberOfPegs)
         return b.generateMasterCode(numberOfPegs)
 
+    def getGuessCode(self,guess):
+        self.guess = guess
+
+
 class originalMasterMind(Mastermind):
     withSupport = bool
     playerAttempts = 0
@@ -160,8 +188,6 @@ class originalMasterMind(Mastermind):
 
 m2 = originalMasterMind()
 m2.play()
-
-b = board()
 #print(b.generateMasterCode(4))
 
 
