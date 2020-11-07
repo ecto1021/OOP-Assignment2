@@ -104,9 +104,13 @@ What would you like to do ?
 """)
             if choice in ["p", 'p']:
                     self.setGameMode()
-                    playAgain = input("do you want to continue")
-                    if playAgain in ['n','N','no','NO','No']:
+                    playAgain = input("do you want to continue: y or n ?")
+                    if playAgain in ['n','N']:
+                        print("Thanks for playing! ")
                         playing == False
+                    if playAgain in ['y','Y']:
+                        playing == True
+                        continue
             elif choice in['Q', "q"]:
                 print("thanks for playing!")
                 quit()
@@ -133,13 +137,22 @@ What would you like to do ?
         '''method for printing entire list'''
         print(self.listOfPlayers)
 
-
+    def getMasterCode(self,numberOfPegs):
+        self.numberOfPegs = numberOfPegs
+        b = board()
+        b.generateMasterCode(numberOfPegs)
+        return b.generateMasterCode(numberOfPegs)
 
 class originalMasterMind(Mastermind):
     withSupport = bool
     playerAttempts = 0
     numberOfPlayers = 0
     def __init__(self):
+        WelcomeString = input('''
+        Welcome to Mastermind! 
+        Developed by Steven Harris
+        COMP 1046 Object-Oriented Programming 
+        Press Enter to Continue ''')
         super()
 
 
@@ -147,6 +160,9 @@ class originalMasterMind(Mastermind):
 
 m2 = originalMasterMind()
 m2.play()
+
+b = board()
+#print(b.generateMasterCode(4))
 
 
 
