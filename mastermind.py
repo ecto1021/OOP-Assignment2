@@ -84,11 +84,13 @@ class Mastermind:
         
         
     def showList(self):
+        "mehthod for showing elements in list "
         for i in self.listOfPlayers:
             print(i)
             
 
     def printList(self):
+        '''method for printing entire list'''
         print(self.listOfPlayers)
 
 class Player:
@@ -105,7 +107,7 @@ class Player:
 class board:
     '''A board class containing the board for the game'''
 
-    masterCode = ["R"]
+    masterCode = ["R", ]
 
 
 
@@ -125,3 +127,4 @@ m.play()
 print(m.getPlayerName(m.listOfPlayers[0]))
 
 
+print(m.__doc__)
