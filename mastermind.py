@@ -1,5 +1,39 @@
 import random
 
+class Player:
+    """a class reprensenting a player
+    this class is inherited when a player is created in the Mastermind game
+    """
+    def __init__(self, name):
+        self.name = name
+
+class board:
+    '''A board class containing the board for the game
+
+    Attributes
+    
+    Contains a list with colours to choose from
+    
+    '''
+    masterCodelist = ["R","l","G","y","W","B","A"]
+
+    def __init__(self):
+        masterCodelist = []
+
+       
+    def generateMasterCode(self, numberOfPegs):
+        '''a randomly generated code from the masterCodelist
+        the random code is equal to the number of pegs
+        '''
+        empCode = []
+        self.numberOfPegs = numberOfPegs
+        empCode.append(random.sample(self.masterCodelist, self.numberOfPegs))
+        return empCode
+
+
+
+
+
 class Mastermind:
     """A class representing Mastermind
     ...
@@ -94,55 +128,16 @@ class Mastermind:
         '''method for printing entire list'''
         print(self.listOfPlayers)
 
-class Player:
-    """a class reprensenting a player
-    this class is inherited when a player is created in the Mastermind game
-    """
-    def __init__(self, name):
-        self.name = name
-
-
-
-
-class board:
-    '''A board class containing the board for the game
-
-    Attributes
-    
-    Contains a list with colours to choose from
-    
-    '''
-    masterCodeList = ["R","l","G","y","W","B","A"]
-
-    def __init__(self):
-        masterCodeList = ["R","l","G","y","W","B","A"]
-       
-       
-
-    def generateMasterCode(self, numberOfPegs):
-        self.numberOfPegs = numberOfPegs
-        for x in self.masterCodeList:
-            print(x)
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 m = Mastermind()
-#m.play()
+m.play()
 
-b = board()
 
-b.generateMasterCode(3)
+
+
 
 
 
