@@ -127,7 +127,8 @@ What would you like to do ?
 """)
             if choice in ["p", 'p']:
                     self.setGameMode()
-                    row.checkAnswer(self,self.getMasterCode(4))
+                    codeMaker.makeMasterCode(self)
+                    row.checkAnswer(self,codeMaker.makeMasterCode)
                     playAgain = input("do you want to continue: y or n ?")
                     if playAgain in ['n','N']:
                         print("Thanks for playing! ")
@@ -170,6 +171,22 @@ What would you like to do ?
     def getGuessCode(self,guess):
         self.guess = guess
 
+class codeMaker:
+    "Class that allows for creation of code"
+    options = ['R','L','G','W','B']
+
+    def __init__(self):
+        self.options 
+
+    def makeMasterCode(self):
+        code1 = input("input code: ")
+        codeToBeStored = input('Enter the same code Again ')
+        if codeToBeStored == code1:
+            row.guessCodeList.append(codeToBeStored)
+        print(row.guessCodeList)
+
+
+
 
 class originalMasterMind(Mastermind):
     withSupport = bool
@@ -189,7 +206,6 @@ class originalMasterMind(Mastermind):
 m2 = originalMasterMind()
 m2.play()
 #print(b.generateMasterCode(4))
-
 
 
 
