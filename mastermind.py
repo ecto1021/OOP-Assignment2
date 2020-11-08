@@ -49,7 +49,7 @@ class row:
         empBoard = board()
         self.masterCodelist = empBoard.masterCodelist
         guess = Mastermind.getGuessCode
-        if(guess == self.masterCodelist):              
+        if(guess == Mastermind.setGuessCode):              
             print("Great! You guessed the number in just 1 try! You're a Mastermind!") 
         else: 
             # ctr variable initialized. It will keep count of  
@@ -128,7 +128,8 @@ What would you like to do ?
             if choice in ["p", 'p']:
                     self.setGameMode()
                     codeMaker.makeMasterCode(self)
-                    row.checkAnswer(self,codeMaker.makeMasterCode)
+                    Mastermind.setGuessCode(self)
+                    row.checkAnswer(self,Mastermind.getGuessCode)
                     playAgain = input("do you want to continue: y or n ?")
                     if playAgain in ['n','N']:
                         print("Thanks for playing! ")
@@ -141,7 +142,7 @@ What would you like to do ?
                 quit()
             break
         if playing == False:
-           playAgain = input("do you want to continue")
+           playAgain = input("do you want to continue ? y or n")
 
 
     def getPlayerName(self,name):
@@ -149,9 +150,7 @@ What would you like to do ?
         '''
         self.name = name
         return name
-        
-        
-        
+            
     def showList(self):
         "mehthod for showing elements in list "
         for i in self.listOfPlayers:
@@ -168,8 +167,13 @@ What would you like to do ?
         b.generateMasterCode(numberOfPegs)
         return b.generateMasterCode(numberOfPegs)
 
-    def getGuessCode(self,guess):
-        self.guess = guess
+    def setGuessCode(self):
+        self.guessCode = input('Please enter Guess: ')
+
+
+    def getGuessCode(self,guessCode):
+        self.guessCode = guessCode
+        return guessCode
 
 class codeMaker:
     "Class that allows for creation of code"
@@ -179,11 +183,19 @@ class codeMaker:
         self.options 
 
     def makeMasterCode(self):
+        making = True
         code1 = input("input code: ")
         codeToBeStored = input('Enter the same code Again ')
-        if codeToBeStored == code1:
-            row.guessCodeList.append(codeToBeStored)
-        print(row.guessCodeList)
+        while making == True:
+            if codeToBeStored == code1:
+                row.guessCodeList.append(codeToBeStored)
+                return row.guessCodeList
+                break
+            elif codeToBeStored != code1:
+                print("CODE NOT THE SAME PLEASE ENTER AGAIN!")
+                codeToBeStored = input('Enter the same code Again ')
+            continue
+
 
 
 
