@@ -33,12 +33,14 @@ class board:
 
 
 class row:
+    ''' A class representing Rows on the board '''
     player = Player
     attemptNumber = 0
     guessCodeList = []
     feedbackList = ["w", "R"]
 
     def __init__(self):
+        '''initalising row class'''
         self.player = Player
         self.attemptNumber
         self.guessCodeList
@@ -75,7 +77,8 @@ class Mastermind:
         Press Enter to Continue ''')
     
     def setGameMode(self):
-        '''i used a while loop here to get the function to repeat if a '''
+        ''' setGameMode method to select what version of MasterMind to play
+        i used a while loop here to get the function to repeat if a '''
         playing = True
         while playing == True:
             choseGameMode = str(input('''
@@ -116,8 +119,8 @@ Select which game you want to play:
                 continue
 
     def play(self):
-
-        """the main class to run, specified in assignment 2"""
+        """ Play method calls other functions to intialising the game
+        the main class to run, specified in assignment 2"""
         playing = True
         while playing == True:
             choice = input("""
@@ -162,16 +165,19 @@ What would you like to do ?
         print(self.listOfPlayers)
 
     def getMasterCode(self,numberOfPegs):
+        '''Returns the masterCode '''
         self.numberOfPegs = numberOfPegs
         b = board()
         b.generateMasterCode(numberOfPegs)
         return b.generateMasterCode(numberOfPegs)
 
     def setGuessCode(self):
+        '''Method to set guessCode '''
         self.guessCode = input('Please enter Guess: ')
 
 
     def getGuessCode(self,guessCode):
+        '''Method to access guessCode'''
         self.guessCode = guessCode
         return guessCode
 
@@ -180,9 +186,11 @@ class codeMaker:
     options = ['R','L','G','W','B']
 
     def __init__(self):
+        '''Initalising method for codeMaker Class'''
         self.options 
 
     def makeMasterCode(self):
+        '''Method to make MasterCode'''
         making = True
         code1 = input("input code: ")
         codeToBeStored = input('Enter the same code Again ')
@@ -201,6 +209,7 @@ class codeMaker:
 
 
 class originalMasterMind(Mastermind):
+    '''A child class of Mastermind, originalMastermind is two player version'''
     withSupport = bool
     playerAttempts = 0
     numberOfPlayers = 0
