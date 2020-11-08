@@ -1,4 +1,5 @@
 import random
+import unittest
 
 class Player:
     """a class reprensenting a player
@@ -19,7 +20,7 @@ class board:
 
     def __init__(self):
         masterCodelist = []
-
+        numberOfPegs = 4
        
     def generateMasterCode(self, numberOfPegs):
         '''a randomly generated code from the masterCodelist
@@ -49,9 +50,9 @@ class row:
     def checkAnswer(self,masterCodelist):
         '''Checks answer against guess code '''
         empBoard = board()
-        self.masterCodelist = empBoard.masterCodelist
-        guess = Mastermind.getGuessCode
-        if(guess == Mastermind.setGuessCode):              
+        guess = row.guessCodeList
+        i = codeMaker.makeMasterCode
+        if( guess == board.masterCodelist):              
             print("Great! You guessed the number in just 1 try! You're a Mastermind!") 
         else: 
             # ctr variable initialized. It will keep count of  
@@ -67,7 +68,7 @@ class Mastermind:
     """
     gameMode = ['A', 'B', 'C', 'D']
     listOfPlayers = []
-
+    numberOfPegs = 4
     def __init__(self):
         '''initialising class with a welcome message'''
         WelcomeString = input('''
@@ -98,6 +99,8 @@ Select which game you want to play:
             elif  choseGameMode  in ["B" ,"b"]:
                 player1 = Player(input("Player 1 please enter your name: "))
                 self.listOfPlayers.append(player1.name)
+                madeCode = board().generateMasterCode(4)
+                codeBreaker().makeGuessCode(4)
                 break
             elif  choseGameMode  in ["C" ,"c"]:
                 player1Name = input("Player 1 please enter your name: ")
@@ -130,9 +133,6 @@ What would you like to do ?
 """)
             if choice in ["p", 'p']:
                     self.setGameMode()
-                    codeMaker.makeMasterCode(self)
-                    Mastermind.setGuessCode(self)
-                    row.checkAnswer(self,Mastermind.getGuessCode)
                     playAgain = input("do you want to continue: y or n ?")
                     if playAgain in ['n','N']:
                         print("Thanks for playing! ")
@@ -196,7 +196,7 @@ class codeMaker:
         codeToBeStored = input('Enter the same code Again ')
         while making == True:
             if codeToBeStored == code1:
-                row.guessCodeList.append(codeToBeStored)
+                board.masterCodelist.append(codeToBeStored)
                 return row.guessCodeList
                 break
             elif codeToBeStored != code1:
@@ -205,7 +205,17 @@ class codeMaker:
             continue
 
 
+class codeBreaker:
+    '''A class for the codeBreaker'''
+    def __init__(self):
+        listOf = ['R','L','G','Y','W','B']
+        guess =[]
 
+
+    def makeGuessCode(self,numberOfPegs):
+        guessCode = input("Please guess your code: ")
+        self.numberOfPegs = numberOfPegs
+        row.guessCodeList.append(guessCode)
 
 
 class originalMasterMind(Mastermind):
@@ -224,16 +234,14 @@ class originalMasterMind(Mastermind):
 
 
 
-m2 = originalMasterMind()
-m2.play()
-#print(b.generateMasterCode(4))
 
 
 
 
 
+m = Mastermind()
+m.play()
 
-
-
+b = board()
 
 
