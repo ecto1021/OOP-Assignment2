@@ -234,14 +234,20 @@ class originalMasterMind(Mastermind):
 
 
 
+class MasterMind44(Mastermind):
+    '''Child class of Mastermind with Different Rules'''
+    playerAttempts = 5
+    mumberOfPlayers = 4
+    mumberOfPegs = 4
+    withSupport = bool
+    def __init__(self):
+        super().__init__
+
+class codeBreaker44(codeBreaker):
+    '''A Child Class of codeBreaker'''
+    pass
 
 
 
-
-
-m = Mastermind()
-m.play()
-
-b = board()
 
 
